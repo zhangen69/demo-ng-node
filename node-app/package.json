@@ -1,0 +1,25 @@
+{
+  "name": "demo-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "demo-node"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Jacob Tan (zhangen69)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.18",
+    "nodemon": "^1.18.10"
+  }
+}
