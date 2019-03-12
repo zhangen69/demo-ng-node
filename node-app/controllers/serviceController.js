@@ -1,4 +1,5 @@
 const Promise = require('promise');
+const QueryModel = require('../models/query.model');
 
 let Model;
 let ModelName;
@@ -6,7 +7,7 @@ let ModelName;
 class ServiceController {
     constructor(modelName) {
         ModelName = modelName;
-        Model = require('../models/' + ModelName);
+        Model = require(`../models/${ModelName}.model`);
     }
 
     // CRUD functions - create, fetch, fetchAll, update, delete
@@ -54,9 +55,10 @@ class ServiceController {
         });        
     }
 
-    fetchAll(queryModel) {
+    fetchAll(query) {
         return new Promise((fulfill, reject) => {
-            Model.find().then(data => {
+            const queryModel = new QueryModel(query);
+            Model.find(queryModel.conditions, queryModel.selections, queryModel.options).then(data => {
                 const result = { 
                     status: 200, 
                     message: `${ModelName} fetched all successfully!`,
