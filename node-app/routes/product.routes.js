@@ -1,7 +1,6 @@
 const express = require('express');
-const service = require('../controllers/serviceController');
-
-const ProductService = new service('product');
+const ServiceController = require('../controllers/serviceController');
+const ProductService = new ServiceController('product');
 const router = express.Router();
 
 const resHandling = (res, func) => {
@@ -21,7 +20,7 @@ router.get('/product/:id', (req, res, next) => {
 })
 
 router.get('/product', (req, res, next) => {
-    resHandling(res, ProductService.fetchAll(req.params.id));
+    resHandling(res, ProductService.fetchAll(JSON.parse(req.query.queryModel)));
 })
 
 router.put('/product/:id', (req, res, next) => {

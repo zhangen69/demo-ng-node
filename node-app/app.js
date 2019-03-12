@@ -3,8 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // import routes
-const productRoutes = require('./routes/product');
-const productServiceRoutes = require('./servicesRoutes/product');
+const productRoutes = require('./routes/product.routes');
 
 // initialize app
 const app = express();
@@ -23,7 +22,6 @@ app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     next();
 });
-app.use('/api', productRoutes);
-app.use('/service', productServiceRoutes);
+app.use('/service', productRoutes);
 
 module.exports = app;
