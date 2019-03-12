@@ -1,0 +1,5 @@
+<a [routerLink]="['/product/add']" routerLinkActive="router-link-active" mat-stroked-button>New Product</a>
+
+<p *ngFor="let product of products">
+  {{ product.name }}
+</p>
