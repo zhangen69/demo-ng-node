@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatTableModule, MatCheckboxModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
