@@ -1,6 +1,6 @@
 const express = require('express');
-const ServiceController = require('../controllers/serviceController');
-const ProductService = new ServiceController('product');
+const Controller = require('../controllers/standard.controller');
+const ProductService = new Controller('product');
 const router = express.Router();
 
 const resHandling = (res, func) => {

@@ -14,11 +14,7 @@ class QueryModel {
     }
 
     _isEmpty(obj) {
-        for(var key in obj) {
-            if(this.hasOwnProperty(key))
-                return false;
-        }
-        return true;
+        return Object.entries(obj).length === 0 && obj.constructor === Object;
     }
 
     _getCondition(conditions, options) {
@@ -39,12 +35,31 @@ class QueryModel {
                     
                 if (options.max != null) {
                     query['$lte'] = options.max;
-                }                        
-                    
+                }
+                
+                // if (options.searchText) {
+                //     query['$in'] = [new RegExp(`${options.searchText}`, 'gi')];
+                // }
+
                 if (conditions[options.type] != undefined) {
-                    conditions[options.type].push(query);
+                    // make entries to the conditions
+                    const keys = Object.keys(conditions[options.type]);
+                    
+                    // check has match from query to conditions
+                    const queryEntries = Object.entries(query);
+                    queryEntries.forEach(keyItem => {
+                        const keyName = keyItem[0];
+                        const keyVal = keyItem[1];
+                        
+                        if (keys.includes(keyName)) {
+                            conditions[options.type][keyName].push(keyVal);
+                        } else {
+                            conditions[options.type][keyName] = keyVal;
+                        }
+                    })
+
                 } else if (!this._isEmpty(query)) {
-                    conditions[options.type] = [query];
+                    conditions[options.type] = query;
                 }
                 break;
             default:
@@ -62,35 +77,13 @@ class QueryModel {
 
         if (!!this.type && !!this.searchText) {
             this._getCondition(conditions, this);
-            // switch(this.queryType) {
-            //     case 'string':
-            //         conditions[this.type] = [new RegExp(`${this.searchText}`, 'gi')]; // LIKE condition
-            //         break;
-            //     case 'number':
-            //         let query = {};
-
-            //         if (this.min != null) {
-            //             query[$gte] = this.min;
-            //         }
-                        
-            //         if (this.max != null) {
-            //             query[$lte] = this.max;
-            //         }                        
-                        
-            //         conditions[this.type] = query;
-            //         break;
-            //     default:
-            //         throw new Error(`Undefined 'queryType' as ${this.queryType}`);
-            //         break;
-            // }
         }
 
         if (this.filters.length > 0) {
             this.filters.forEach(filter => {
                 if (!filter.queryType) filter.queryType = 'string';
-                if (!!filter.type && !!filter.searchText) {
+                if (!!filter.type) {
                     this._getCondition(conditions, filter);
-                    // conditions[f.type] != undefined ? conditions[f.type].push(new RegExp(`${f.searchText}`, 'gi')) : conditions[f.type] = [new RegExp(`${f.searchText}`, 'gi')];
                 }
             })
         }

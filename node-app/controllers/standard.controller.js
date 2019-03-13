@@ -1,7 +1,7 @@
 const Promise = require('promise');
 const QueryModel = require('../models/query.model');
 
-class ServiceController {
+class StandardController {
     constructor(modelName) {
         this.modelName = modelName;
         this.model = require(`../models/${this.modelName}.model`);
@@ -113,4 +113,4 @@ class ServiceController {
     }
 };
 
-module.exports = ServiceController;
+module.exports = StandardController;
