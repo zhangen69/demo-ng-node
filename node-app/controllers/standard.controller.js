@@ -55,7 +55,7 @@ class StandardController {
     fetchAll(queryModel) {
         return new Promise((fulfill, reject) => {
             const query = new QueryModel(queryModel).getQuery();
-            console.log(query);
+            // console.log(query);
             this.model.find(query.conditions, query.selections, query.options).then(data => {
                 const result = { 
                     status: 200, 

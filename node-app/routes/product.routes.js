@@ -4,11 +4,16 @@ const ProductService = new Controller('product');
 const router = express.Router();
 
 const resHandling = (res, func) => {
-    func.then(result => {
-        res.status(result.status).json(result);
-    }).catch(result => {
-        res.status(result.status).json(result);
-    });
+    try {
+        func.then(result => {
+            res.status(result.status).json(result);
+        }).catch(result => {
+            res.status(result.status).json(result);
+        });
+    } catch (error) {
+        console.log('Error Occurs!');
+        console.error(error);
+    }
 }
 
 router.post('/product', (req, res, next) => {

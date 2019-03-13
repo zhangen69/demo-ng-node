@@ -25,8 +25,8 @@ app.use(function(req, res, next) {
 app.use('/service', productRoutes);
 app.get('/test', (req, res, next) => {
     const Product = require('./models/product.model');
-    const conditions = { 'name': /test/gi, 'price': { '$lte': 5000 }, '$and': [ { 'price': { '$gte': 0 } }, { 'price': { '$gte': 2000 } } ] };
-    console.log(conditions);
+    const conditions = { 'name': /test/gi, 'price': { '$lte': 5000, '$gte': 0 }, '$and': [ { 'price': { '$gte': 0 } }, { 'price': { '$gte': 2000 }}]};
+    // console.log(conditions);
     Product.find(conditions, null, { skip: 0, limit: 10}).then(data => {
         res.json(data);
     })

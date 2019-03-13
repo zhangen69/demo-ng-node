@@ -52,7 +52,11 @@ class QueryModel {
                         const keyVal = keyItem[1];
                         
                         if (keys.includes(keyName)) {
-                            conditions[options.type][keyName].push(keyVal);
+                            if (conditions['$and'] != undefined) {
+                                conditions['$and'].push({ [keyName]: keyVal });
+                            } else {
+                                conditions['$and'] = [conditions[options.type], { [keyName]: keyVal }];
+                            }
                         } else {
                             conditions[options.type][keyName] = keyVal;
                         }
