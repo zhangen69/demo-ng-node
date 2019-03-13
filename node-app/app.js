@@ -1,12 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const jsreport = require('jsreport');
 
 // import routes
 const productRoutes = require('./routes/product.routes');
 
 // initialize app
 const app = express();
+
+// initialize jsreport
+jsreport().init();
 
 // mongodb connection
 mongoose
@@ -29,6 +33,20 @@ app.get('/test', (req, res, next) => {
     // console.log(conditions);
     Product.find(conditions, null, { skip: 0, limit: 10}).then(data => {
         res.json(data);
+    })
+})
+app.get('/report', (req, res, next) => {
+    jsreport.render({
+        template: {
+            content: '<h1>Hello {{foo}}</h1>',
+            engine: 'handlebars',
+            recipe: 'chrome-pdf'
+        },
+          data: {
+            foo: "world"
+        }
+    }).then(data => {
+        data.stream.pipe(res);
     })
 })
 

@@ -1,0 +1,40 @@
+{
+    "extensions": {
+      "authentication": {
+        "cookieSession": {
+          "secret": "test"
+        },
+        "admin": {
+          "username": "admin",
+          "password": "admin123"
+        },
+        "enabled": true
+      },
+      "scripts": {
+        "timeout": 40000,
+        "strategy": "http-server"
+      }
+    },
+    "httpPort": 5488,
+    "store": {
+      "provider": "memory"
+    },
+    "blobStorage": {
+      "provider": "memory"
+    },
+    "logger": {
+      "silent": true,
+      "console": {
+        "transport": "console",
+        "level": "debug"
+      }
+    },
+    "allowLocalFilesAccess": true,
+    "templatingEngines": {
+      "timeout": 10000,
+      "strategy": "http-server"
+    },
+    "chrome": {
+      "timeout": 40000
+    }
+  }
