@@ -67,19 +67,33 @@ class StandardController {
         });    
     }
 
+    _getUpdateConditions(model) {
+        let updateModel = { $set: model };
+
+        if (model.hasOwnProperty('audit')) {
+            Object.keys(model.audit).forEach(key => updateModel.$set[`audit.${key}`] = model.audit[key]);
+            delete updateModel.$set.audit;
+            updateModel['$currentDate'] = { 'audit.updatedDate': { $type: 'date' } };
+        }
+
+        return updateModel;
+    }
+
     update(model) {
         return new Promise((fulfill, reject) => {
-            this.model.findByIdAndUpdate(model._id, { $set: model }).then(data => {
-                if (data == null) throw new Error(`${this.modelName} not found!`);
-                
-                Model.findById(model._id).then(data => {
-                    const result = { 
-                        status: 201, 
-                        message: `${this.modelName} updated successfully!`,
-                        data: data
-                    };
-                    fulfill(result);
-                });
+            this.model.findById(model._id).then(doc => {
+                if (doc == null) throw new Error(`${this.modelName} not found!`);
+
+                doc.updateOne(this._getUpdateConditions(model)).then(() => {
+                    this.model.findById(model._id).then(data => {
+                        const result = { 
+                            status: 201, 
+                            message: `${this.modelName} updated successfully!`,
+                            data: data
+                        };
+                        fulfill(result);
+                    });
+                })                
             }).catch(error => {
                 const result = { 
                     status: 500, 

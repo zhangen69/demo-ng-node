@@ -17,7 +17,7 @@ const resHandling = (res, func) => {
 }
 
 router.post('/product', (req, res, next) => {
-    resHandling(res, ProductService.create(req.params.id));
+    resHandling(res, ProductService.create(req.body));
 });
 
 router.get('/product/:id', (req, res, next) => {
@@ -28,7 +28,7 @@ router.get('/product', (req, res, next) => {
     resHandling(res, ProductService.fetchAll(JSON.parse(req.query.queryModel)));
 })
 
-router.put('/product/:id', (req, res, next) => {
+router.put('/product/', (req, res, next) => {
     resHandling(res, ProductService.update(req.body));
 })
 
