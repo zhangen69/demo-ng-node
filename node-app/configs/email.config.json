@@ -1,0 +1,11 @@
+{
+  "from": "zhangen69@gmail.com",
+  "host": "smtp.gmail.com",
+  "secureConnection": true,
+  "port": 465,
+  "transportMethod": "SMTP",
+  "auth": {
+    "user": "zhangen69@gmail.com",
+    "pass": "jacob124578"
+  }
+}

@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const jsreport = require('jsreport');
+const mailer = require('express-mailer');
+const emailConfig = require('./configs/email.config.json');
 
 // import routes
 const productRoutes = require('./routes/product.routes');
@@ -11,6 +13,13 @@ const app = express();
 
 // initialize jsreport
 jsreport().init();
+
+// setup mailer settings
+mailer.extend(app, emailConfig);
+
+// Views
+app.set('views', __dirname + '/templates');
+app.set('view engine', 'jade');
 
 // mongodb connection
 mongoose
@@ -48,6 +57,20 @@ app.get('/report', (req, res, next) => {
     }).then(data => {
         data.stream.pipe(res);
     })
+})
+app.get('/sendEmail', (req, res, next) => {
+    app.mailer.send('email', {
+        to: 'zhangen69@live.co.uk',
+        subject: 'testing email',
+
+    }, (error, message) => {
+        if (error) {
+            console.log(error);
+            res.status(500).send('There was an error sending the email');
+            return;
+        }
+        res.status(200).json({ message: 'Email sent' });
+    });
 })
 
 module.exports = app;
