@@ -23,7 +23,7 @@
 
 # Planning Features
 ### Angular App
-- [ ] StandardServices (Model-Based)
+- [ ] Standard Services (Model-Based)
 - [ ] Upload Images (cloudinary/Google Photo API)
 - [ ] Auth (JWT)
 - [ ] HTTP Interception (Header-Authorization)
@@ -36,11 +36,20 @@
 - [x] Routing (APIs)
 - [x] Standard Controller (Model-Based)
 - [ ] Generate Report (reportingjs)
+  - [ ] Generate Sample Report
+  - [ ] Generate Report Service (Service Layer)
+  - [ ] Report Templates
 - [ ] Auth (JWT)
 - [ ] Standard Model Inheritance Classes & Properties (Auditable, Documentable)
+  - [x] Auditable
+  - [ ] Documentable
 - [ ] Standard User (Login, Change Password, Registration, Forgot Password)
 - [ ] Standard Role & Authorization
 - [ ] Send Email & Email Queue Service
+  - [x] Send Sample Email
+  - [ ] Send Email Service (Service Layer)
+  - [ ] Email Queue (MongoDB)
+  - [ ] Resend Email Service
 - [ ] Configuration Settings
 
 ### WebApp
