@@ -28,6 +28,8 @@
 - [ ] Auth (JWT)
 - [ ] HTTP Interception (Header-Authorization)
 - [ ] Generate Rules
+- [ ] Standard Form (Form Field, Validation, ...) 
+- [ ] Standard List (Data-Table, Action, Button, Search, ...)
 
 ### Node App
 - [x] Connect MongoDB (CRUD)
@@ -35,8 +37,27 @@
 - [x] Standard Controller (Model-Based)
 - [ ] Generate Report (reportingjs)
 - [ ] Auth (JWT)
-- [ ] Standard Model Inheritance Classes & Properties
+- [ ] Standard Model Inheritance Classes & Properties (Auditable, Documentable)
 - [ ] Standard User (Login, Change Password, Registration, Forgot Password)
 - [ ] Standard Role & Authorization
 - [ ] Send Email & Email Queue Service
 - [ ] Configuration Settings
+
+### WebApp
+- [ ] User & Auth
+  - [ ] Login
+  - [ ] Registration
+  - [ ] Forgot Password
+  - [ ] Reset Password
+  - [ ] Access Failed Lock
+  - [ ] Update Profile
+  - [ ] Change Password
+- [ ] Product (or any other collection/module)
+  - [ ] Standard CRUD
+  - [ ] Upload Images
+  - [ ] Updated Audit for each Record (created by, created date, updated by, updated date)
+- [ ] Send Email
+- [ ] Generate Report
+- [ ] Configuration Settings (Email Settings, Access Failed Settings, ...)
+- [ ] Auto Generate Document Code for Collections, which is [Documentable]
+- [ ] Activity Logs (Application Level)
