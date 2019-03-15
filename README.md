@@ -2,17 +2,15 @@
 > It's a application with MEAN Stack that means MongoDB, ExpressJs, Angular, and NodeJs. In case, it just a demostration.
 
 # Used Frameworks/Library
-- MongoDB v1.17.0
-- Angular v7.2.4
-- Angular CLI v7.2.4
-- Angular Material v7.3.3
-- Angular CDK v7.3.3
-- Angular Flex Layout v7.0.0-beta.23
-- ExpressJs v4.16.4
-- Mongoose v5.4.18
-- Nodemon v1.18.10
-- PromiseJs v8.0.2
-- BodyParser v1.18.3
+- MongoDB v1.17.0 (Open Source Document Database)
+- Angular v7.2.4 (TypeScript-based open-source web application framework)
+- Angular Material v7.3.3 (Material Design for Angular)
+- Angular Flex Layout v7.0.0-beta.23 (Sophisticated Layout API using Flexbox CSS + mediaQuery)
+- ExpressJs v4.16.4 (Fast, unopinionated, minimalist web framework for Node.js)
+- Mongoose v5.4.18 (elegant mongodb object modeling for node.js, ODM for MongoDB)
+- Nodemon v1.18.10 (Serve app and restart automatically, Perfect for development)
+- PromiseJs v8.0.2 (A website dedicated to promises in JavaScript)
+- BodyParser v1.18.3 (Node.js body parsing middleware)
 
 # Pending & Ready to Use
 - cloudinary
@@ -25,20 +23,50 @@
 
 # Planning Features
 ### Angular App
-- [ ] StandardServices (Model-Based)
+- [ ] Standard Services (Model-Based)
 - [ ] Upload Images (cloudinary/Google Photo API)
 - [ ] Auth (JWT)
 - [ ] HTTP Interception (Header-Authorization)
 - [ ] Generate Rules
+- [ ] Standard Form (Form Field, Validation, ...) 
+- [ ] Standard List (Data-Table, Action, Button, Search, ...)
 
 ### Node App
 - [x] Connect MongoDB (CRUD)
 - [x] Routing (APIs)
 - [x] Standard Controller (Model-Based)
 - [ ] Generate Report (reportingjs)
+  - [ ] Generate Sample Report
+  - [ ] Generate Report Service (Service Layer)
+  - [ ] Report Templates
 - [ ] Auth (JWT)
-- [ ] Standard Model Inheritance Classes & Properties
+- [ ] Standard Model Inheritance Classes & Properties (Auditable, Documentable)
+  - [x] Auditable
+  - [ ] Documentable
 - [ ] Standard User (Login, Change Password, Registration, Forgot Password)
 - [ ] Standard Role & Authorization
 - [ ] Send Email & Email Queue Service
+  - [x] Send Sample Email
+  - [ ] Send Email Service (Service Layer)
+  - [ ] Email Queue (MongoDB)
+  - [ ] Resend Email Service
 - [ ] Configuration Settings
+
+### WebApp
+- [ ] User & Auth
+  - [ ] Login
+  - [ ] Registration
+  - [ ] Forgot Password
+  - [ ] Reset Password
+  - [ ] Access Failed Lock
+  - [ ] Update Profile
+  - [ ] Change Password
+- [ ] Product (or any other collection/module)
+  - [ ] Standard CRUD
+  - [ ] Upload Images
+  - [ ] Updated Audit for each Record (created by, created date, updated by, updated date)
+- [ ] Send Email
+- [ ] Generate Report
+- [ ] Configuration Settings (Email Settings, Access Failed Settings, ...)
+- [ ] Auto Generate Document Code for Collections, which is [Documentable]
+- [ ] Activity Logs (Application Level)
