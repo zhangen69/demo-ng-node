@@ -11,7 +11,7 @@ class StandardRoutes {
         });
 
         router.get(`/${modelName}`, (req, res, next) => {
-            this.resHandling(res, modelService.fetchAll(JSON.parse(req.query.queryModel)));
+            this.resHandling(res, modelService.fetchAll(JSON.parse(req.query.queryModel || {})));
         });
 
         router.put(`/${modelName}/`, (req, res, next) => {
