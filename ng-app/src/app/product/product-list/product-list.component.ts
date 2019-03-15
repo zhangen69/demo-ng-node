@@ -80,7 +80,11 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   }
 
   fetchAllProduct() {
-    return this.http.get('http://localhost:3000/service/product');
+    const queryModel = {
+      pageSize: 5,
+      currentPage: 0
+    };
+    return this.http.get('http://localhost:3000/service/product?queryModel=' + JSON.stringify(queryModel));
   }
 
 }
