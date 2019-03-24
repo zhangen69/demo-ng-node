@@ -1,3 +1,5 @@
+> Currently this repository are NLS and moved to [demo-ts-node](https://github.com/zhangen69/demo-ts-node).
+
 # NG-NODE App
 > It's a application with MEAN Stack that means MongoDB, ExpressJs, Angular, and NodeJs. In case, it just a demostration.
 
